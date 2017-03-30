@@ -1,10 +1,11 @@
 #include <iostream>
 #include <cmath>
+//earth point representation
 template <typename T>
 struct point{
   T lattitude; 
   T longitude; 
-  point(double A, double B)
+  point(T A, T B)
     :lattitude(A) , longitude(B)
   {
   }
@@ -38,7 +39,7 @@ namespace traits
 
   };
 }
-//just make it inline, right? why not.. 
+ 
 template <int D, typename P>
 inline double get(P const& p)
 {
@@ -61,9 +62,11 @@ double distance(P1 const& a, P2 const& b)
 
 
 }
+
 int main(){
-  point<double> hello(52.373,4.8922);
-  point<double> no(41.38333,2.18333);
+  //can use typedefs to make this a little clearer.
+  point<double> hello(.914,0.08538);
+  point<double> no(0.72227,0.038106);
   double answer = distance(hello, no);
   std::cout<<answer*6378.137<<std::endl; 
    
